@@ -1,0 +1,104 @@
+body {
+    background-color: rgb(201, 209, 209);
+}   
+
+#test1 {
+    background-color: rgb(90, 90, 103);
+    opacity: 0.2;
+}
+
+
+h4.class1 {
+    color: brown;
+    margin-left: 20px;
+    border-style: dashed double dotted solid;
+    border-width: 10px;
+    border-top: 10px dashed purple;
+    border-radius: 10px;
+    outline-style: solid;
+
+}
+
+
+h5 {
+    vertical-align: center;
+    text-decoration-line: line-through underline;
+    text-transform: uppercase ; 
+    font-style: italic;
+}
+
+table, th, td {
+    border: 2px solid;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th {
+    height: 50px;
+
+}
+
+td {
+    text-align: center;
+}
+
+tr:hover {
+    background-color: aqua;
+}
+
+
+.drop-b {
+    background-color: blue;
+    color: white;
+    padding: 13px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.drop {
+    display: none;
+    position: absolute;
+    background-color: lightblue;
+    min-width: 150px;
+}
+
+.drop a {
+    color:black;
+    padding: 11px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.drop a:hover {
+    background-color: white;
+}
+
+.drop-m:hover .drop {
+    display: block;
+}
+
+
+/* All b elements under h5 element 
+h1 > b (b that is direct child of h1)
+h1 + b (b that is adjactent to h1)
+h1 ~ b (b that is after h1 sequentially)
+div[class='test'] {} select all div with class of test
+
+*/
+h5 b{   
+    color:red;
+}
+
+/* comment 
+
+* universal selector
+background-image: url(https://upload.wikimedia.org/wikiped
+ia/commons/thumb/3/39/FreeCodeCamp_logo.png/920px-FreeCodeCamp_logo.png);
+.classname to select a class
+
+border-style: dashed double dotted solid;
+    border-top-style: dotted;
+ 
+*/

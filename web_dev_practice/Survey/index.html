@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tution Survey</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1 id="title">Tution Registration Form</h1>
+        <p id="description">Please fill out the form if your child requires personal coaching</p>
+
+        <form id='survey-form' method="post">
+        <div>
+            <fieldset>
+                <h3>Parent Information</h3>
+                <label id="name-label" for="name">Name <input id="name" type="text" placeholder="Enter Your Name" /></label>
+                <label id='email-label' for="email">Email <input id="email" type="email" placeholder="Enter your Email" /></label>
+                <label id="number-label" for="number">Number <input id="number" type="tel" placeholder="Enter your phone number" /></label>
+                
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <h3>Candidate Information</h3>
+                <label for="'cname">Candidate Name<input id="cname" type="text" placeholder="Enter Candidate Name"/></label>
+                <label>Age<input id="age" type="number" placeholder="Age" min="12" max="18"/></label>
+                <label for="dropdown">Target Grade
+                    <select id="dropdown">
+                    <option value="1">A*</option>
+                    <option value="2">A</option>
+                    <option value="3">B</option>
+                    <option value="4">C</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Desired Subjects</legend>
+                <label> Mathematics<input type="checkbox" value="Mathematics"/></label>
+                <label> Physics<input type="checkbox" value="Physics"/></label>
+                <label> Computer Science<input type="checkbox" value="Computer Science"/></label>
+
+
+            </fieldset>
+            <fieldset>
+                <legend> Enrolled Year</legend>
+                <label> Year 9 <input id='Year 9' type="radio" name="class" value="9"/> </label>
+                <label> Year 10 <input id="Year 10" type="radio" name="class" value="10"/></label>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <h3>Extra Details</h3>
+                <label><textarea rows="3" cols="30" placeholder="Enter any additional comments..."></textarea></label>
+                <input id="submit" type="submit" value="Register"/>
+            </fieldset>
+        </div>
+        </form>
+    </body>
+</html>
