@@ -1,6 +1,7 @@
 import time, requests, json
 from threading import Thread, Lock
 import matplotlib.pyplot as plt
+import datetime
 
 '''
 ------------------------------------------------
@@ -33,49 +34,60 @@ LOCK = Lock()
 
 # Get Weather Data from API
 def get_weather_data(name, lat, lon, url, lock):
+    end_date = datetime.date.today() - datetime.timedelta(days=1)  # yesterday (API may lag)
+    start_date = end_date - datetime.timedelta(days=14)
     params = {
         "latitude": lat,
         "longitude": lon,
-        "start_date": "2026-04-29",
-        "end_date": "2026-05-13",
+        "start_date": start_date,
+        "end_date": end_date,
         "daily": "temperature_2m_mean",
     }
 
-    response = requests.get(url, params=params)
+    response = requests.get(url, params=params, timeout=10)
     res = response.json()
     dates = res['daily']['time']
     temps = res['daily']['temperature_2m_mean']
     avg_temp = round(sum(temps)/len(temps), 3)
-    data = {
-        'name': name, 'dates':dates,'temps' : temps, 'avg_temp' : avg_temp
-        }
+    data = {'dates' :dates,'temps' : temps, 'avg_temp' : avg_temp}
+        
+    
     with lock:
-        write_data(data)
+        old = read_data()
+        if changed(data, old, name):
+            write_data(data, name, old)
+        else:
+            print('no change')
+
+
+def changed(data, old, name):
+    return data != old[name]
 
 
 # Write to File
-def write_data(data) -> None:
-    try:
+def write_data(data, name, file_data) -> None:    
+        
+        if not file_data:
+            print('error reading file')
+            return
+        file_data[name] = data
         with open('weather_data.json', 'w') as f:
-            json.dump(data, f, indent=4)
-    except Exception:
-        print('Error writing File')
+            json.dump(file_data, f, indent=4)
+    
 
 # Read File Content
 def read_data() -> dict:
     '''
     Reads data from the json file return a dict 
-    '''
-    try:
-        with open('weather_data.json', 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print('Error reading File')
+    '''    
+    with open('weather_data.json', 'r') as f:
+        return json.load(f)
+    
+        
 
     
 
 def main():
-    global CITIES, API_BASE, LOCK
     threads = []
     for city in CITIES:
         threads.append( Thread(target=get_weather_data, args=(city, CITIES[city]['lat'], CITIES[city]['lon'], API_BASE, LOCK)))
@@ -84,4 +96,4 @@ def main():
     for t in threads:
         t.join()
     print('finished')
-main()    
+main()
