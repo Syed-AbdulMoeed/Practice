@@ -1,0 +1,69 @@
+# ==========================================
+# WINDOWS & VS CODE
+# ==========================================
+# Windows system files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+$RECYCLE.BIN/
+
+# VS Code settings and history
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+*.code-workspace
+
+# ==========================================
+# NODE.JS & HTML5
+# ==========================================
+# Dependencies
+node_modules/
+jspm_packages/
+.npm/
+
+# Build outputs and caches
+dist/
+build/
+.cache/
+.eslintcache
+
+# ==========================================
+# PYTHON
+# ==========================================
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# ==========================================
+# SECURITY, LOGS, & TEMPS
+# ==========================================
+# Environment variables / Secrets (CRITICAL)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
