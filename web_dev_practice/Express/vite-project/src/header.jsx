@@ -1,6 +1,6 @@
 
 function Header() {
-    return <div class='head'></div>
+    return <header className="chat-header">The Duck</header>
 }
 
 export default Header
