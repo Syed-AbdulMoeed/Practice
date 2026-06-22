@@ -1,6 +1,6 @@
 
 function ChatArea() {
-    return <div class="chat-area">chatter mans</div>
+    return <div className="chat-area">chatter mans</div>
 }
 
 export default ChatArea
