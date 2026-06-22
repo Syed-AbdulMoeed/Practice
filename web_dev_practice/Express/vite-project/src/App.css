@@ -1,5 +1,16 @@
 .main-container {
-    height: 100px;
-    width: 400px;
-    background-color: blue
+    display: flex;
+}
+
+
+.head {
+    flex: 2;
+    background-color: red;
+}
+
+
+.chat-area {
+    flex: 1;
+    background-color: aqua;
+    
 }
